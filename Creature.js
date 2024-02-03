@@ -1,6 +1,6 @@
 import { Entity } from "./Entity";
 
-class Creature extends Entity {
+export class Creature extends Entity {
   constructor(velocity, healthPoints) {
     super();
     this.velocity = velocity;
