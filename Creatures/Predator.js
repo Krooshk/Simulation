@@ -4,6 +4,7 @@ class Predator extends Creature {
   constructor(velocity, healthPoints, power) {
     super(velocity, healthPoints);
     this.power = power;
+    this.view = "🐺";
   }
   makeMove() {
     // Переместиться (чтобы приблизиться к жертве - травоядному)

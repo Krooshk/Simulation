@@ -1,11 +1,12 @@
-// import { MapOfGame } from "./MapOfGame";
+import { MapOfGame } from "./MapOfGame.js";
 import { Renderer } from "./Renderer.js";
 
 class Simulation {
   constructor() {
     this.count = 0;
     this.play = false;
-    // this.mapOfGame = new MapOfGame();
+    this.mapOfGame = new MapOfGame(20, 30);
+
     this.renderer = new Renderer();
   }
 

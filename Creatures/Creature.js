@@ -1,4 +1,4 @@
-import { Entity } from "./Entity";
+import { Entity } from "../Entity";
 
 export class Creature extends Entity {
   constructor(velocity, healthPoints) {
