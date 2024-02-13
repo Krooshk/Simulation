@@ -1,7 +1,8 @@
-import { Entity } from "../Entity";
+import { Entity } from "../Entity.js";
 
-class Tree extends Entity {
+export class Tree extends Entity {
   constructor() {
+    super();
     this.view = "🌳";
   }
 }

@@ -1,13 +1,33 @@
 import { MapOfGame } from "./MapOfGame.js";
 import { Renderer } from "./Renderer.js";
+// import { AddGrass } from "../Actions/AddGrass.js";
+// import { AddHerbivores } from "../Actions/AddHerbivores.js";
+import { ArrangeAllObjects } from "../Actions/ArrangeAllObjects.js";
+import { MovementOfCreatures } from "../Actions/MovementOfCreatures.js";
 
 class Simulation {
   constructor() {
     this.count = 0;
     this.play = false;
-    this.mapOfGame = new MapOfGame(20, 30);
+    this.mapOfGame = new MapOfGame(10, 15);
+    this.initActions = [];
+    this.turnActions = [];
+  }
 
-    this.renderer = new Renderer();
+  fillActions() {
+    this.initActions.push(new ArrangeAllObjects());
+    // this.turnActions.push(new MovementOfCreatures());
+  }
+
+  initial() {
+    this.initActions.forEach((el) => {
+      el.arrange(
+        this.mapOfGame.map,
+        this.mapOfGame.width * this.mapOfGame.height
+      );
+    });
+    // console.log(this.mapOfGame);
+    this.renderer = new Renderer(this.mapOfGame);
   }
 
   nextTurn() {}
@@ -24,8 +44,9 @@ class Simulation {
   }
 }
 
-console.log("here");
+// console.log("here");
 
 const simulation = new Simulation();
-
-simulation.renderer.initialize();
+simulation.fillActions();
+simulation.initial();
+simulation.renderer.show();

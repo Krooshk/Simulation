@@ -1,6 +1,6 @@
-import { Creature } from "./Creature";
+import { Creature } from "./Creature.js";
 
-class Herbivore extends Creature {
+export class Herbivore extends Creature {
   constructor(velocity, healthPoints, power) {
     super(velocity, healthPoints);
     this.power = power;
