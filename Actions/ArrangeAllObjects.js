@@ -5,21 +5,15 @@ import { Rock } from "../Objects/Rock.js";
 import { Tree } from "../Objects/Tree.js";
 export class ArrangeAllObjects {
   constructor() {
-    this.pull = [
-      new Herbivore(),
-      new Predator(),
-      new Grass(),
-      new Rock(),
-      new Tree(),
-    ];
+    this.pull = [Herbivore, Predator, Grass, Rock, Tree];
   }
 
   arrange(map, length) {
     for (let i = 0; i < length; i++) {
-      if (Math.random() > 0.5) {
-        map[i] = "__";
+      if (Math.random() < 0.5) {
+        map[i] = new this.pull[Math.floor(Math.random() * 5)]();
       } else {
-        map[i] = this.pull[Math.floor(Math.random() * 5)].view;
+        map[i] = "__";
       }
     }
     // console.log(map);

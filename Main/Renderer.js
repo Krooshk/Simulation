@@ -1,18 +1,22 @@
+import { Entity } from "../Entity.js";
 export class Renderer {
   constructor(map) {
-    this.map = map;
+    this.mapOfTheGame = map;
   }
 
   show() {
-    const width = this.map.width;
-    const heigth = this.map.height;
-    const fields = Number(width) * Number(heigth);
-    // console.log(this.map);
-    console.log("_".repeat(width));
-    for (let i = 0; i < fields; i += width) {
-      const string = this.map.map.slice(i, i + width).join("");
+    const width = this.mapOfTheGame.width;
+    const arrayOfObjects = this.mapOfTheGame.map;
+    const view = arrayOfObjects.map((el) => {
+      if (el instanceof Entity) {
+        return el.view;
+      } else {
+        return el;
+      }
+    });
+    for (let i = 0; i < view.length; i += width) {
+      const string = view.slice(i, i + width).join("");
       console.log(string);
     }
-    console.log("_".repeat(width));
   }
 }
