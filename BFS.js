@@ -1,4 +1,4 @@
-function BFS(start_index, map, width, goal) {
+export function BFS(start_index, map, width, goal) {
   const height = map.length / width;
   const queue = [];
   queue.push(start_index);
@@ -6,7 +6,7 @@ function BFS(start_index, map, width, goal) {
   while (queue.length > 0) {
     const index = queue.shift();
     const node = map[index];
-    if (node == goal) {
+    if (node instanceof goal) {
       return index;
     }
     visited.push(index);
@@ -84,14 +84,14 @@ function getNeighbors(start_index, width, height) {
   }
 }
 
-const example1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-const example2 = [1, 2, 3, 4];
+// const example1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+// const example2 = [1, 2, 3, 4];
 // const example2 = [
 //   [1, 2, 3, 4],
 //   [5, 6, 7, 8],
 //   [9, 10, 11, 12],
 // ];
 
-console.log(BFS(0, example1, 4, 12));
+// console.log(BFS(0, example1, 4, 12));
 
 // Вокруг одного узла максимум 8 узлов

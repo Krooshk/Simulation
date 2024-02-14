@@ -4,12 +4,13 @@ import { Renderer } from "./Renderer.js";
 // import { AddHerbivores } from "../Actions/AddHerbivores.js";
 import { ArrangeAllObjects } from "../Actions/ArrangeAllObjects.js";
 import { MovementOfCreatures } from "../Actions/MovementOfCreatures.js";
+import { Creature } from "../Creatures/Creature.js";
 
 class Simulation {
   constructor() {
     this.count = 0;
     this.play = false;
-    this.mapOfGame = new MapOfGame(10, 15);
+    this.mapOfGame = new MapOfGame(4, 6);
     this.initActions = [];
     this.turnActions = [];
   }
@@ -30,7 +31,14 @@ class Simulation {
     this.renderer = new Renderer(this.mapOfGame);
   }
 
-  nextTurn() {}
+  nextTurn() {
+    this.mapOfGame.map.forEach((el, index, array) => {
+      if (el instanceof Creature) {
+        el.makeMove(index, array, this.mapOfGame.width);
+      }
+    });
+    this.renderer.show();
+  }
 
   startSimulation() {
     this.play = true;
@@ -50,3 +58,11 @@ const simulation = new Simulation();
 simulation.fillActions();
 simulation.initial();
 simulation.renderer.show();
+simulation.nextTurn();
+
+// import pkg from "prompt-sync";
+// const { prompt } = pkg;
+// // const prompt = require("prompt-sync")();
+
+// const name = prompt("What is your name?");
+// console.log(`Hey there ${name}`);
