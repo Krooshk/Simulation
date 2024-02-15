@@ -1,6 +1,9 @@
-import { Entity } from "./Entity.js";
+// import { Entity } from "./Entity.js";
+const Entity = require("./Entity.cjs");
 
-export function BFS(start_index, map, width, goal) {
+// console.log(typeof new Entity());
+
+module.exports = function BFS(start_index, map, width, goal) {
   const height = map.length / width;
   const queue = [];
   queue.push([start_index]);
@@ -29,7 +32,7 @@ export function BFS(start_index, map, width, goal) {
     queue.push(...filterIndexesWithHistory);
   }
   return null;
-}
+};
 
 function getNeighbors(start_index, width, height) {
   const neighborsIndexes = [
@@ -93,13 +96,6 @@ function getNeighbors(start_index, width, height) {
   if (start_index < width * height) {
     return neighborsIndexes.filter((_, index) => cases.down.includes(index));
   }
-}
-
-function makeList(current, previous = null) {
-  return {
-    current,
-    previous,
-  };
 }
 
 // const example1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];

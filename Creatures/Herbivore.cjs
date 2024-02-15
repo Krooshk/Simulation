@@ -1,8 +1,11 @@
-import { Creature } from "./Creature.js";
-import { Grass } from "../Objects/Grass.js";
-import { BFS } from "../BFS.js";
+// import { Creature } from "./Creature.js";
+// import { Grass } from "../Objects/Grass.js";
+// import { BFS } from "../BFS.js";
+const Creature = require("./Creature.cjs");
+const Grass = require("../Objects/Grass.cjs");
+const BFS = require("../BFS.cjs");
 
-export class Herbivore extends Creature {
+module.exports = class Herbivore extends Creature {
   constructor(velocity, healthPoints, power) {
     super(velocity, healthPoints);
     this.power = power;
@@ -24,4 +27,4 @@ export class Herbivore extends Creature {
       }
     }
   }
-}
+};

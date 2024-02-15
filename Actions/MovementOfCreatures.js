@@ -1,1 +1,1 @@
-export class MovementOfCreatures {}
+class MovementOfCreatures {}

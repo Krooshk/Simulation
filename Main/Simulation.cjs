@@ -1,10 +1,16 @@
-import { MapOfGame } from "./MapOfGame.js";
-import { Renderer } from "./Renderer.js";
 // import { AddGrass } from "../Actions/AddGrass.js";
 // import { AddHerbivores } from "../Actions/AddHerbivores.js";
-import { ArrangeAllObjects } from "../Actions/ArrangeAllObjects.js";
-import { MovementOfCreatures } from "../Actions/MovementOfCreatures.js";
-import { Creature } from "../Creatures/Creature.js";
+// import { MovementOfCreatures } from "../Actions/MovementOfCreatures.js";
+// used
+// import { MapOfGame } from "./MapOfGame.js";
+// import { Renderer } from "./Renderer.js";
+// import { ArrangeAllObjects } from "../Actions/ArrangeAllObjects.js";
+// import { Creature } from "../Creatures/Creature.js";
+
+const MapOfGame = require("./MapOfGame.cjs");
+const Renderer = require("./Renderer.cjs");
+const ArrangeAllObjects = require("../Actions/ArrangeAllObjects.cjs");
+const Creature = require("../Creatures/Creature.cjs");
 
 class Simulation {
   constructor() {
@@ -48,7 +54,9 @@ class Simulation {
   startSimulation() {
     this.play = true;
     while (this.play) {
-      this.nextTurn();
+      Promise.resolve().then(() => {
+        this.nextTurn();
+      });
     }
   }
 
@@ -63,10 +71,15 @@ const simulation = new Simulation();
 simulation.fillActions();
 simulation.initial();
 simulation.renderer.show();
+// simulation.startSimulation();
 simulation.nextTurn();
 simulation.nextTurn();
 simulation.nextTurn();
-simulation.nextTurn();
+
+// simulation.pauseSimulation();
+// setTimeout(() => {
+//   simulation.pauseSimulation();
+// }, 1000);
 
 // import pkg from "prompt-sync";
 // const { prompt } = pkg;

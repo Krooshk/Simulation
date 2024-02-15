@@ -1,6 +1,6 @@
-import { Entity } from "../Entity.js";
-
-export class Creature extends Entity {
+// import { Entity } from "../Entity.js";
+const Entity = require("../Entity.cjs");
+module.exports = class Creature extends Entity {
   constructor(velocity, healthPoints) {
     super();
     this.velocity = velocity;
@@ -13,4 +13,4 @@ export class Creature extends Entity {
   makeMove() {
     throw new Error("The makeMove() method must be implemented in subclasses");
   }
-}
+};

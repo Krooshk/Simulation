@@ -1,5 +1,7 @@
-import { Entity } from "../Entity.js";
-export class Renderer {
+// import { Entity } from "../Entity.js";
+const Entity = require("../Entity.cjs");
+
+module.exports = class Renderer {
   constructor(map) {
     this.mapOfTheGame = map;
   }
@@ -20,4 +22,4 @@ export class Renderer {
     }
     console.log("////////////////");
   }
-}
+};
