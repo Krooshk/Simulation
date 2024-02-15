@@ -1,21 +1,32 @@
+import { Entity } from "./Entity.js";
+
 export function BFS(start_index, map, width, goal) {
   const height = map.length / width;
   const queue = [];
-  queue.push(start_index);
+  queue.push([start_index]);
   const visited = [];
   while (queue.length > 0) {
-    const index = queue.shift();
+    const path = queue.shift();
+    const index = path.at(-1);
     const node = map[index];
     if (node instanceof goal) {
-      return index;
+      return path;
     }
     visited.push(index);
 
     const neighborsIndexes = getNeighbors(index, width, height);
-    const filterIndexes = neighborsIndexes.filter(
-      (el) => !visited.includes(el)
-    );
-    queue.push(...filterIndexes);
+
+    const filterIndexes = neighborsIndexes.filter((ind) => {
+      if (!visited.includes(ind) && map[ind] instanceof goal) {
+        return true;
+      }
+      if (!visited.includes(ind) && !(map[ind] instanceof Entity)) {
+        return true;
+      }
+      return false;
+    });
+    const filterIndexesWithHistory = filterIndexes.map((el) => [...path, el]);
+    queue.push(...filterIndexesWithHistory);
   }
   return null;
 }
@@ -82,6 +93,13 @@ function getNeighbors(start_index, width, height) {
   if (start_index < width * height) {
     return neighborsIndexes.filter((_, index) => cases.down.includes(index));
   }
+}
+
+function makeList(current, previous = null) {
+  return {
+    current,
+    previous,
+  };
 }
 
 // const example1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];

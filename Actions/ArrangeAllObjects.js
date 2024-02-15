@@ -12,8 +12,9 @@ export class ArrangeAllObjects {
     for (let i = 0; i < length; i++) {
       if (Math.random() < 0.5) {
         map[i] = new this.pull[Math.floor(Math.random() * 5)]();
+        map[i].position = i;
       } else {
-        map[i] = "__";
+        map[i] = "  ";
       }
     }
     // console.log(map);

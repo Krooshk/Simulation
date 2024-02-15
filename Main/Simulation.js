@@ -32,11 +32,16 @@ class Simulation {
   }
 
   nextTurn() {
-    this.mapOfGame.map.forEach((el, index, array) => {
+    const mapOfTheGame = this.mapOfGame.map;
+    const creatures = mapOfTheGame.filter((el) => {
       if (el instanceof Creature) {
-        el.makeMove(index, array, this.mapOfGame.width);
+        return true;
       }
     });
+    creatures.forEach((el) => {
+      el.makeMove(el.position, mapOfTheGame, this.mapOfGame.width);
+    });
+    // console.log(creatures);
     this.renderer.show();
   }
 
@@ -58,6 +63,9 @@ const simulation = new Simulation();
 simulation.fillActions();
 simulation.initial();
 simulation.renderer.show();
+simulation.nextTurn();
+simulation.nextTurn();
+simulation.nextTurn();
 simulation.nextTurn();
 
 // import pkg from "prompt-sync";

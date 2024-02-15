@@ -18,5 +18,6 @@ export class Renderer {
       const string = view.slice(i, i + width).join("");
       console.log(string);
     }
+    console.log("////////////////");
   }
 }
