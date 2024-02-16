@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "start": "node ./Main/Simulation.cjs"
+  },
   "dependencies": {
     "prompt-sync": "^4.2.0"
   }

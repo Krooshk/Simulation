@@ -6,9 +6,8 @@ const Grass = require("../Objects/Grass.cjs");
 const BFS = require("../BFS.cjs");
 
 module.exports = class Herbivore extends Creature {
-  constructor(velocity, healthPoints, power) {
+  constructor(velocity = 1, healthPoints = 3) {
     super(velocity, healthPoints);
-    this.power = power;
     this.view = "🐄";
   }
 
@@ -18,6 +17,7 @@ module.exports = class Herbivore extends Creature {
     if (pathForGoal) {
       const firstStep = pathForGoal[1];
       if (pathForGoal.length === 2) {
+        this.healthPoints++;
         array[firstStep] = "  "; // поглощение
       } else {
         array[index].position = firstStep;
