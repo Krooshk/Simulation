@@ -1,9 +1,6 @@
-// import { Creature } from "./Creature.js";
-// import { Grass } from "../Objects/Grass.js";
-// import { BFS } from "../BFS.js";
 const Creature = require("./Creature.cjs");
 const Grass = require("../Objects/Grass.cjs");
-const BFS = require("../BFS.cjs");
+const BFS = require("../Utils/BFS.cjs");
 
 module.exports = class Herbivore extends Creature {
   constructor(velocity = 1, healthPoints = 3) {
@@ -12,7 +9,7 @@ module.exports = class Herbivore extends Creature {
   }
 
   makeMove(index, array, width) {
-    const pathForGoal = BFS(index, array, width, Grass);
+    const pathForGoal = BFS.search(index, array, width, Grass);
     // console.log({ path: pathForGoal, creature: array[index], index: index });
     if (pathForGoal) {
       const firstStep = pathForGoal[1];

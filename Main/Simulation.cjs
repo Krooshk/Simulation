@@ -6,11 +6,7 @@ const readline = require("readline").createInterface({
 const MapOfGame = require("./MapOfGame.cjs");
 const Renderer = require("./Renderer.cjs");
 const ArrangeAllObjects = require("../Actions/ArrangeAllObjects.cjs");
-const Creature = require("../Creatures/Creature.cjs");
-
-const delay = new Promise((resolve) => {
-  setTimeout(resolve, 1000);
-});
+const MovementOfCreatures = require("../Actions/MovementOfCreatures.cjs");
 
 class Simulation {
   constructor() {
@@ -22,30 +18,26 @@ class Simulation {
   }
 
   fillActions() {
-    this.initActions.push(new ArrangeAllObjects());
-    // this.turnActions.push(new MovementOfCreatures());
+    this.initActions.push(
+      new ArrangeAllObjects(
+        this.mapOfGame.map,
+        this.mapOfGame.width * this.mapOfGame.height
+      )
+    ); // какая-то лажа?
+    this.turnActions.push(new MovementOfCreatures(this.mapOfGame));
   }
 
   initial() {
-    this.initActions.forEach((el) => {
-      el.arrange(
-        this.mapOfGame.map,
-        this.mapOfGame.width * this.mapOfGame.height
-      );
+    this.initActions.forEach((initAction) => {
+      initAction.produce();
     });
-    // console.log(this.mapOfGame);
+
     this.renderer = new Renderer(this.mapOfGame);
   }
 
   nextTurn() {
-    const mapOfTheGame = this.mapOfGame.map;
-    const creatures = mapOfTheGame.filter((el) => {
-      if (el instanceof Creature) {
-        return true;
-      }
-    });
-    creatures.forEach((el) => {
-      el.makeMove(el.position, mapOfTheGame, this.mapOfGame.width);
+    this.turnActions.forEach((turnAction) => {
+      turnAction.produce();
     });
 
     this.count++;
