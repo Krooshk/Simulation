@@ -5,6 +5,7 @@ module.exports = class MapOfGame extends Entity {
     super();
     this.width = width;
     this.height = height;
-    this.map = []; // array in JS - vector so i mean, that length of array equal (width * height)
+    this.count = width * height;
+    this.map = new Map();
   }
 };

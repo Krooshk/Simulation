@@ -1,13 +1,13 @@
 const Entity = require("../Entity.cjs");
 
 module.exports = class Renderer {
-  constructor(map) {
-    this.mapOfTheGame = map;
+  constructor(mapOfGame) {
+    this.mapOfGame = mapOfGame;
   }
 
   show() {
-    const width = this.mapOfTheGame.width;
-    const arrayOfObjects = this.mapOfTheGame.map;
+    const width = this.mapOfGame.width;
+    const arrayOfObjects = this.mapOfGame.map;
     const view = arrayOfObjects.map((el) => {
       if (el instanceof Entity) {
         return el.view;

@@ -1,20 +1,18 @@
 const Creature = require("../Creatures/Creature.cjs");
+const Action = require("../Actions/Action.cjs");
 
-module.exports = class MovementOfCreatures {
-  constructor(map) {
-    this.map = map;
+module.exports = class MovementOfCreatures extends Action {
+  constructor(mapOfGame) {
+    super(mapOfGame);
   }
 
   produce() {
-    const mapOfTheGame = this.map.map;
-    const width = this.map.width;
-    const creatures = mapOfTheGame.filter((el) => {
-      if (el instanceof Creature) {
-        return true;
+    const map = this.mapOfGame.map;
+
+    for (let [position, obj] of map) {
+      if (obj instanceof Creature) {
+        obj.makeMove(position, mapOfTheGame);
       }
-    });
-    creatures.forEach((el) => {
-      el.makeMove(el.position, mapOfTheGame, width);
-    });
+    }
   }
 };

@@ -19,10 +19,7 @@ class Simulation {
 
   fillActions() {
     this.initActions.push(
-      new ArrangeAllObjects(
-        this.mapOfGame.map,
-        this.mapOfGame.width * this.mapOfGame.height
-      )
+      new ArrangeAllObjects(this.mapOfGame.map, this.mapOfGame.size)
     ); // какая-то лажа?
     this.turnActions.push(new MovementOfCreatures(this.mapOfGame));
   }

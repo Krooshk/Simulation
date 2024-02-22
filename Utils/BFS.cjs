@@ -6,10 +6,10 @@ class BreadthFirstSearch {
     this.neighbors = new Neighbors();
   }
 
-  search(start_index, map, width, goal) {
+  search(position, mapOfTheGame, goal) {
     const height = map.length / width;
     const queue = [];
-    queue.push([start_index]);
+    queue.push([position]);
     const visited = [];
 
     while (queue.length > 0) {
