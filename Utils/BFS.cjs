@@ -7,40 +7,43 @@ class BreadthFirstSearch {
   }
 
   search(position, mapOfTheGame, goal) {
-    const height = map.length / width;
     const queue = [];
     queue.push([position]);
     const visited = [];
 
     while (queue.length > 0) {
       const path = queue.shift();
-      const index = path.at(-1);
-      const node = map[index];
+      const lastPosition = path.at(-1);
+      const node = mapOfTheGame.get(lastPosition);
 
       if (node instanceof goal) {
         return path;
       }
 
-      visited.push(index);
+      visited.push(lastPosition);
 
-      const neighborsIndexes = this.neighbors.getNeighbors(
-        index,
-        width,
-        height
+      const neighborsPositions = this.neighbors.getNeighbors(
+        position,
+        mapOfTheGame.width,
+        mapOfTheGame.height
       );
 
-      const filterIndexes = neighborsIndexes.filter((ind) => {
-        if (!visited.includes(ind) && map[ind] instanceof goal) {
+      const filterPositions = neighborsPositions.filter((pos) => {
+        if (!visited.includes(pos) && mapOfTheGame.get(pos) instanceof goal) {
           return true;
         }
-        if (!visited.includes(ind) && !(map[ind] instanceof Entity)) {
+        if (!visited.includes(pos) && !mapOfTheGame.get(pos)) {
+          // empty place
           return true;
         }
         return false;
       });
 
-      const filterIndexesWithHistory = filterIndexes.map((el) => [...path, el]);
-      queue.push(...filterIndexesWithHistory);
+      const filterPositionWithHistory = filterPositions.map((el) => [
+        ...path,
+        el,
+      ]);
+      queue.push(...filterPositionWithHistory);
     }
     return null;
   }
