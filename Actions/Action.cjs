@@ -1,6 +1,6 @@
 module.exports = class Action {
-  constructor(mapOfGame) {
-    this.mapOfGame = mapOfGame;
+  constructor(mapOfTheGame) {
+    this.mapOfTheGame = mapOfTheGame;
   }
 
   produce() {}

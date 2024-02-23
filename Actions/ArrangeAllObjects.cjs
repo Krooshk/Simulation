@@ -6,17 +6,18 @@ const Tree = require("../Objects/Tree.cjs");
 const Action = require("../Actions/Action.cjs");
 
 module.exports = class ArrangeAllObjects extends Action {
-  constructor(mapOfGame) {
-    super(mapOfGame);
+  constructor(mapOfTheGame) {
+    super(mapOfTheGame);
     this.pull = [Herbivore, Predator, Grass, Rock, Tree];
   }
 
   produce() {
-    for (let i = 0; i < this.mapOfGame.height; i++) {
-      for (let j = 0; j < this.mapOfGame.width; j++) {
+    const { width, height, map } = this.mapOfTheGame;
+    for (let i = 0; i < height; i++) {
+      for (let j = 0; j < width; j++) {
         if (Math.random() < 0.5) {
           const obj = new this.pull[Math.floor(Math.random() * 5)]();
-          this.mapOfGame.set(`${j}/${i}`, obj); // x/y coordinates
+          map.set(`${j}/${i}`, obj); // x/y coordinates
         }
       }
     }

@@ -2,7 +2,7 @@ module.exports = class Neighbors {
   getNeighbors(position, width, height) {
     neighbors = [];
 
-    const [x, y] = position.split("/");
+    const [x, y] = position.split("/").map((el) => Number(el));
 
     if (x + 1 < width) {
       // right

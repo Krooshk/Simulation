@@ -8,8 +8,8 @@ module.exports = class Herbivore extends Creature {
     this.view = "🐄";
   }
 
-  makeMove(index, array, width) {
-    const pathForGoal = BFS.search(index, array, width, Grass);
+  makeMove(position, mapOfTheGame) {
+    const pathForGoal = BFS.search(position, mapOfTheGame, Grass);
     // console.log({ path: pathForGoal, creature: array[index], index: index });
     if (pathForGoal) {
       const firstStep = pathForGoal[1];

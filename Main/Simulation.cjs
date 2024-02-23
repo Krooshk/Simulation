@@ -3,7 +3,7 @@ const readline = require("readline").createInterface({
   output: process.stdout,
 });
 
-const MapOfGame = require("./MapOfGame.cjs");
+const mapOfTheGame = require("./mapOfTheGame.cjs");
 const Renderer = require("./Renderer.cjs");
 const ArrangeAllObjects = require("../Actions/ArrangeAllObjects.cjs");
 const MovementOfCreatures = require("../Actions/MovementOfCreatures.cjs");
@@ -12,16 +12,14 @@ class Simulation {
   constructor() {
     this.count = 0;
     this.play = false;
-    this.mapOfGame = new MapOfGame(10, 5);
+    this.mapOfTheGame = new mapOfTheGame(10, 5);
     this.initActions = [];
     this.turnActions = [];
   }
 
   fillActions() {
-    this.initActions.push(
-      new ArrangeAllObjects(this.mapOfGame.map, this.mapOfGame.size)
-    ); // какая-то лажа?
-    this.turnActions.push(new MovementOfCreatures(this.mapOfGame));
+    this.initActions.push(new ArrangeAllObjects(this.mapOfTheGame)); // какая-то лажа?
+    this.turnActions.push(new MovementOfCreatures(this.mapOfTheGame));
   }
 
   initial() {
@@ -29,7 +27,7 @@ class Simulation {
       initAction.produce();
     });
 
-    this.renderer = new Renderer(this.mapOfGame);
+    this.renderer = new Renderer(this.mapOfTheGame);
   }
 
   nextTurn() {

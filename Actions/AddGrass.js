@@ -1,8 +1,8 @@
 const Action = require("../Actions/Action.cjs");
 
 module.exports = class AddGrass extends Action {
-  constructor(map) {
-    super(map);
+  constructor(mapOfTheGame) {
+    super(mapOfTheGame);
   }
 
   produce() {

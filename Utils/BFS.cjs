@@ -7,6 +7,7 @@ class BreadthFirstSearch {
   }
 
   search(position, mapOfTheGame, goal) {
+    const { width, height, map } = mapOfTheGame;
     const queue = [];
     queue.push([position]);
     const visited = [];
@@ -14,7 +15,7 @@ class BreadthFirstSearch {
     while (queue.length > 0) {
       const path = queue.shift();
       const lastPosition = path.at(-1);
-      const node = mapOfTheGame.get(lastPosition);
+      const node = map.get(lastPosition);
 
       if (node instanceof goal) {
         return path;
@@ -24,15 +25,15 @@ class BreadthFirstSearch {
 
       const neighborsPositions = this.neighbors.getNeighbors(
         position,
-        mapOfTheGame.width,
-        mapOfTheGame.height
+        width,
+        height
       );
 
       const filterPositions = neighborsPositions.filter((pos) => {
-        if (!visited.includes(pos) && mapOfTheGame.get(pos) instanceof goal) {
+        if (!visited.includes(pos) && map.get(pos) instanceof goal) {
           return true;
         }
-        if (!visited.includes(pos) && !mapOfTheGame.get(pos)) {
+        if (!visited.includes(pos) && !map.get(pos)) {
           // empty place
           return true;
         }

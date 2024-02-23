@@ -1,23 +1,24 @@
-const Entity = require("../Entity.cjs");
+// const Entity = require("../Entity.cjs");
 
 module.exports = class Renderer {
-  constructor(mapOfGame) {
-    this.mapOfGame = mapOfGame;
+  constructor(mapOfTheGame) {
+    this.mapOfTheGame = mapOfTheGame;
   }
 
   show() {
-    const width = this.mapOfGame.width;
-    const arrayOfObjects = this.mapOfGame.map;
-    const view = arrayOfObjects.map((el) => {
-      if (el instanceof Entity) {
-        return el.view;
-      } else {
-        return el;
+    const { width, height, map } = this.mapOfTheGame;
+    for (let i = 0; i < height; i++) {
+      let str = "";
+      for (let j = 0; j < width; j++) {
+        const pos = [j, i].join("/");
+        const entity = map.get(pos);
+        if (entity) {
+          str += entity.view;
+        } else {
+          str += "__";
+        }
       }
-    });
-    for (let i = 0; i < view.length; i += width) {
-      const string = view.slice(i, i + width).join("");
-      console.log(string);
+      console.log(str);
     }
     console.log("////////////////");
   }
