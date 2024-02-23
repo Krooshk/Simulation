@@ -24,7 +24,7 @@ class BreadthFirstSearch {
       visited.push(lastPosition);
 
       const neighborsPositions = this.neighbors.getNeighbors(
-        position,
+        lastPosition,
         width,
         height
       );

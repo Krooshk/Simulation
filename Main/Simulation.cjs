@@ -3,7 +3,7 @@ const readline = require("readline").createInterface({
   output: process.stdout,
 });
 
-const mapOfTheGame = require("./mapOfTheGame.cjs");
+const MapOfTheGame = require("./MapOfTheGame.cjs");
 const Renderer = require("./Renderer.cjs");
 const ArrangeAllObjects = require("../Actions/ArrangeAllObjects.cjs");
 const MovementOfCreatures = require("../Actions/MovementOfCreatures.cjs");
@@ -12,7 +12,7 @@ class Simulation {
   constructor() {
     this.count = 0;
     this.play = false;
-    this.mapOfTheGame = new mapOfTheGame(10, 5);
+    this.mapOfTheGame = new MapOfTheGame(5, 5);
     this.initActions = [];
     this.turnActions = [];
   }
