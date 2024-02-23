@@ -14,5 +14,11 @@ module.exports = class MovementOfCreatures extends Action {
         obj.makeMove(position, this.mapOfTheGame);
       }
     }
+
+    for (let [position, obj] of map) {
+      if (obj instanceof Creature) {
+        obj.isWalked = false;
+      }
+    }
   }
 };

@@ -8,20 +8,7 @@ module.exports = class Herbivore extends Creature {
     this.view = "🐄";
   }
 
-  makeMove(position, mapOfTheGame) {
-    const pathForGoal = BFS.search(position, mapOfTheGame, Grass);
-    console.log({ path: pathForGoal, position });
-    // if (pathForGoal) {
-    //   const firstStep = pathForGoal[1];
-    //   if (pathForGoal.length === 2) {
-    //     this.healthPoints++;
-    //     array[firstStep] = "  "; // поглощение
-    //   } else {
-    //     array[index].position = firstStep;
-    //     const temp = array[index];
-    //     array[index] = "  ";
-    //     array[firstStep] = temp;
-    //   }
-    // }
-  }
+  //   makeMove(position, mapOfTheGame) {
+  //     super(position, mapOfTheGame);
+  //   }
 };
