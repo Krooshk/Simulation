@@ -41,7 +41,7 @@ module.exports = class Neighbors {
 
     if (x - 1 >= 0 && y - 1 >= 0) {
       // left-up corner
-      neighbors.push(this.transformToKey(x - 1, y + 1));
+      neighbors.push(this.transformToKey(x - 1, y - 1));
     }
 
     return neighbors;

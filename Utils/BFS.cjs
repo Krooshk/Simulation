@@ -15,6 +15,9 @@ class BreadthFirstSearch {
     while (queue.length > 0) {
       const path = queue.shift();
       const lastPosition = path.at(-1);
+
+      if (visited.includes(lastPosition)) continue;
+
       const node = map.get(lastPosition);
 
       if (node instanceof goal) {
@@ -30,6 +33,11 @@ class BreadthFirstSearch {
       );
 
       const filterPositions = neighborsPositions.filter((pos) => {
+        const lastPositionQueue = queue.map((array) => array.at(-1));
+
+        if (lastPositionQueue.includes(pos)) {
+          return false;
+        }
         if (!visited.includes(pos) && map.get(pos) instanceof goal) {
           return true;
         }
@@ -44,7 +52,12 @@ class BreadthFirstSearch {
         ...path,
         el,
       ]);
+
       queue.push(...filterPositionWithHistory);
+
+      //   console.log("visited", visited);
+      //   console.log("queue", queue);
+      //   console.log();
     }
     return null;
   }

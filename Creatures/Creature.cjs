@@ -14,18 +14,21 @@ module.exports = class Creature extends Entity {
   }
 
   makeMove(position, mapOfTheGame, stepLeft = this.velocity) {
-    if (stepLeft === 0 || this.isWalked) return;
+    if (this.isWalked) return;
+
     const { map } = mapOfTheGame;
     const pathForGoal = BFS.search(position, mapOfTheGame, Grass);
-    console.log(stepLeft, pathForGoal);
-    if (pathForGoal) {
+    // console.log(pathForGoal);
+    if (!pathForGoal) return;
+
+    while (stepLeft > 0) {
+      // goal is near
       if (pathForGoal.length === 2) {
-        // goal is near
         const pos = pathForGoal[1];
 
         map.delete(pos);
         this.healthPoints++;
-        this.makeMove(position, mapOfTheGame, stepLeft - 1);
+        stepLeft--;
       } else {
         const difference = pathForGoal.length - 1 - stepLeft;
         const wasted = difference ? stepLeft : pathForGoal.length - 1;
@@ -34,11 +37,11 @@ module.exports = class Creature extends Entity {
         const obj = map.get(pathForGoal[0]);
         map.delete(pathForGoal[0]);
         map.set(pos, obj);
-        if (stepLeft - wasted === 0) {
-          this.isWalked = true;
-        }
-        this.makeMove(pos, mapOfTheGame, stepLeft - wasted);
+
+        pathForGoal.splice(0, wasted);
+        stepLeft -= wasted;
       }
     }
+    this.isWalked = true;
   }
 };
