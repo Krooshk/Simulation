@@ -8,7 +8,7 @@ module.exports = class Herbivore extends Creature {
     this.view = "🐄";
   }
 
-  //   makeMove(position, mapOfTheGame) {
-  //     super(position, mapOfTheGame);
-  //   }
+  makeMove(position, mapOfTheGame) {
+    super.makeMove(position, mapOfTheGame, Grass);
+  }
 };

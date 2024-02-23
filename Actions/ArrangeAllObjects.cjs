@@ -11,21 +11,21 @@ module.exports = class ArrangeAllObjects extends Action {
     this.pull = [Herbivore, Predator, Grass, Rock, Tree];
   }
 
-  //   produce() {
-  //     const { width, height, map } = this.mapOfTheGame;
-  //     for (let i = 0; i < height; i++) {
-  //       for (let j = 0; j < width; j++) {
-  //         if (Math.random() < 0.5) {
-  //           const obj = new this.pull[Math.floor(Math.random() * 5)]();
-  //           map.set(`${j}/${i}`, obj); // x/y coordinates
-  //         }
-  //       }
-  //     }
-  //   }
-
   produce() {
     const { width, height, map } = this.mapOfTheGame;
-    map.set(`${0}/${0}`, new Herbivore()); // x/y coordinates
-    map.set(`${width - 1}/${height - 1}`, new Grass()); // x/y coordinates
+    for (let i = 0; i < height; i++) {
+      for (let j = 0; j < width; j++) {
+        if (Math.random() < 0.5) {
+          const obj = new this.pull[Math.floor(Math.random() * 5)]();
+          map.set(`${j}/${i}`, obj); // x/y coordinates
+        }
+      }
+    }
   }
+
+  //   produce() {
+  //     const { width, height, map } = this.mapOfTheGame;
+  //     map.set(`${0}/${0}`, new Herbivore()); // x/y coordinates
+  //     map.set(`${width - 1}/${height - 1}`, new Grass()); // x/y coordinates
+  //   }
 };

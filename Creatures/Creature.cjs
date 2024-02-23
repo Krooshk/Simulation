@@ -1,6 +1,8 @@
 const Entity = require("../Entity.cjs");
-const BFS = require("../Utils/BFS.cjs");
 const Grass = require("../Objects/Grass.cjs");
+const Herbivore = require("./Herbivore.cjs");
+
+const BFS = require("../Utils/BFS.cjs");
 
 module.exports = class Creature extends Entity {
   constructor(velocity, healthPoints) {
@@ -13,11 +15,12 @@ module.exports = class Creature extends Entity {
     }
   }
 
-  makeMove(position, mapOfTheGame, stepLeft = this.velocity) {
+  makeMove(position, mapOfTheGame, goal, power) {
     if (this.isWalked) return;
 
     const { map } = mapOfTheGame;
-    const pathForGoal = BFS.search(position, mapOfTheGame, Grass);
+    const pathForGoal = BFS.search(position, mapOfTheGame, goal);
+    let stepLeft = this.velocity;
     // console.log(pathForGoal);
     if (!pathForGoal) return;
 
@@ -26,8 +29,22 @@ module.exports = class Creature extends Entity {
       if (pathForGoal.length === 2) {
         const pos = pathForGoal[1];
 
-        map.delete(pos);
-        this.healthPoints++;
+        if (goal === Grass) {
+          map.delete(pos);
+          this.healthPoints++;
+        }
+
+        if (goal === Herbivore) {
+          const herbivore = map.get(pos);
+
+          if (power > herbivore.healthPoints) {
+            map.delete(pos);
+            this.healthPoints += herbivore.healthPoints;
+          } else {
+            herbivore.healthPoints -= power;
+            this.healthPoints += power;
+          }
+        }
         stepLeft--;
       } else {
         const difference = pathForGoal.length - 1 - stepLeft;
