@@ -10,6 +10,6 @@ module.exports = class Predator extends Creature {
   }
 
   makeMove(position, mapOfTheGame) {
-    super.makeMove(position, mapOfTheGame, Herbivore, this.power);
+    super.makeMove(position, mapOfTheGame, Herbivore, "Herbivore", this.power);
   }
 };

@@ -26,6 +26,6 @@ module.exports = class ArrangeAllObjects extends Action {
   //   produce() {
   //     const { width, height, map } = this.mapOfTheGame;
   //     map.set(`${0}/${0}`, new Herbivore()); // x/y coordinates
-  //     map.set(`${width - 1}/${height - 1}`, new Grass()); // x/y coordinates
+  //     map.set(`${width - 1}/${height - 1}`, new Predator()); // x/y coordinates
   //   }
 };
