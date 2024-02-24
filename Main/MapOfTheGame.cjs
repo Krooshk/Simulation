@@ -1,4 +1,4 @@
-const Entity = require("../Entity.cjs");
+const Entity = require("./Entity.cjs");
 
 module.exports = class mapOfTheGame extends Entity {
   constructor(width, height) {

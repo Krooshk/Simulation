@@ -1,4 +1,4 @@
-const Entity = require("../Entity.cjs");
+const Entity = require("../Main/Entity.cjs");
 
 const BFS = require("../Utils/BFS.cjs");
 

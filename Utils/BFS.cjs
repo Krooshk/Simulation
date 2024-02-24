@@ -1,4 +1,4 @@
-const Entity = require("../Entity.cjs");
+const Entity = require("../Main/Entity.cjs");
 const Neighbors = require("./Neighbors.cjs");
 
 class BreadthFirstSearch {
