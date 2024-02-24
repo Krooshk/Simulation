@@ -16,7 +16,6 @@ module.exports = class Creature extends Entity {
   makeMove(position, mapOfTheGame, goalClass, goalName, power) {
     if (this.isWalked) return;
 
-    const { map } = mapOfTheGame;
     const pathForGoal = BFS.search(position, mapOfTheGame, goalClass);
     let stepLeft = this.velocity;
 
@@ -28,15 +27,15 @@ module.exports = class Creature extends Entity {
         const pos = pathForGoal[1];
 
         if (goalName === "Grass") {
-          map.delete(pos);
+          mapOfTheGame.removeEntity(pos);
           this.healthPoints++;
         }
 
         if (goalName === "Herbivore") {
-          const herbivore = map.get(pos);
+          const herbivore = mapOfTheGame.getEntity(pos);
 
           if (power > herbivore.healthPoints) {
-            map.delete(pos);
+            mapOfTheGame.removeEntity(pos);
             this.healthPoints += herbivore.healthPoints;
           } else {
             herbivore.healthPoints -= power;
@@ -49,9 +48,9 @@ module.exports = class Creature extends Entity {
         const wasted = difference ? stepLeft : pathForGoal.length - 1;
         const pos = pathForGoal[wasted];
 
-        const obj = map.get(pathForGoal[0]);
-        map.delete(pathForGoal[0]);
-        map.set(pos, obj);
+        const obj = mapOfTheGame.getEntity(pathForGoal[0]);
+
+        mapOfTheGame.moveEntity(pathForGoal[0], pos, obj);
 
         pathForGoal.splice(0, wasted);
         stepLeft -= wasted;

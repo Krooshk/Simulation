@@ -7,19 +7,23 @@ const MapOfTheGame = require("./MapOfTheGame.cjs");
 const Renderer = require("./Renderer.cjs");
 const ArrangeAllObjects = require("../Actions/ArrangeAllObjects.cjs");
 const MovementOfCreatures = require("../Actions/MovementOfCreatures.cjs");
+const AddGrass = require("../Actions/AddGrass.cjs");
+const AddHerbivores = require("../Actions/AddHerbivores.cjs");
 
 class Simulation {
   constructor() {
     this.count = 0;
     this.play = false;
-    this.mapOfTheGame = new MapOfTheGame(5, 5);
+    this.mapOfTheGame = new MapOfTheGame(10, 10);
     this.initActions = [];
     this.turnActions = [];
   }
 
   fillActions() {
-    this.initActions.push(new ArrangeAllObjects(this.mapOfTheGame)); // какая-то лажа?
+    this.initActions.push(new ArrangeAllObjects(this.mapOfTheGame));
     this.turnActions.push(new MovementOfCreatures(this.mapOfTheGame));
+    this.turnActions.push(new AddGrass(this.mapOfTheGame));
+    this.turnActions.push(new AddHerbivores(this.mapOfTheGame));
   }
 
   initial() {
