@@ -1,5 +1,4 @@
 const Entity = require("../Main/Entity.cjs");
-
 const BFS = require("../Utils/BFS.cjs");
 
 module.exports = class Creature extends Entity {

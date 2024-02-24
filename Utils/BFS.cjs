@@ -1,4 +1,3 @@
-const Entity = require("../Main/Entity.cjs");
 const Neighbors = require("./Neighbors.cjs");
 
 class BreadthFirstSearch {
@@ -54,10 +53,6 @@ class BreadthFirstSearch {
       ]);
 
       queue.push(...filterPositionWithHistory);
-
-      //   console.log("visited", visited);
-      //   console.log("queue", queue);
-      //   console.log();
     }
     return null;
   }

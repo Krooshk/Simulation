@@ -1,5 +1,3 @@
-// const Entity = require("../Entity.cjs");
-
 module.exports = class Renderer {
   constructor(mapOfTheGame) {
     this.mapOfTheGame = mapOfTheGame;
