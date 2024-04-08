@@ -1,6 +1,11 @@
-const Action = require("./Action.cjs");
+import {Action} from "./Action";
 
-module.exports = class AddEntity extends Action {
+export class AddEntity extends Action {
+	mapOfTheGame: Map<number, number>;
+    lowerLimit: number;
+    percent: number;
+    additionalElement: any;
+    nameElement: string;
   constructor(
     mapOfTheGame,
     lowerLimit,

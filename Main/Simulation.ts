@@ -3,14 +3,21 @@ const readline = require("readline").createInterface({
   output: process.stdout,
 });
 
-const MapOfTheGame = require("./MapOfTheGame.cjs");
-const Renderer = require("./Renderer.cjs");
-const ArrangeAllObjects = require("../Actions/ArrangeAllObjects.cjs");
-const MovementOfCreatures = require("../Actions/MovementOfCreatures.cjs");
-const AddGrass = require("../Actions/AddGrass.cjs");
-const AddHerbivores = require("../Actions/AddHerbivores.cjs");
+import  { MapOfTheGame } from "./MapOfTheGame";
+import { Renderer } from "./Renderer";
+import { ArrangeAllObjects }  from "../Actions/ArrangeAllObjects";
+import { MovementOfCreatures } from "../Actions/MovementOfCreatures";
+import { AddGrass } from "../Actions/AddGrass";
+import { AddHerbivores } from "../Actions/AddHerbivores";
 
 class Simulation {
+  count: number;
+  play: boolean;
+  mapOfTheGame: Map<number, number>;
+  initActions: [];
+  turnActions: [];
+  renderer: 
+
   constructor() {
     this.count = 0;
     this.play = false;
@@ -47,7 +54,7 @@ class Simulation {
     this.play = true;
     while (this.play) {
       await new Promise((resolve) => {
-        setTimeout(resolve, 2000);
+        setTimeout(resolve, 500);
       });
       if (this.play) this.nextTurn();
     }

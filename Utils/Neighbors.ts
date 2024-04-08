@@ -1,4 +1,4 @@
-module.exports = class Neighbors {
+export class Neighbors {
   getNeighbors(position, width, height) {
     const neighbors = [];
 

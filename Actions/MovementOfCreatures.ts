@@ -1,7 +1,7 @@
-const Creature = require("../Creatures/Creature.cjs");
-const Action = require("../Actions/Action.cjs");
+import { Creature }  from "../Creatures/Creature";
+import { Action }  from "../Actions/Action";
 
-module.exports = class MovementOfCreatures extends Action {
+export class MovementOfCreatures extends Action {
   constructor(mapOfTheGame) {
     super(mapOfTheGame);
   }

@@ -1,7 +1,7 @@
-const Creature = require("./Creature.cjs");
-const Herbivore = require("./Herbivore.cjs");
+import { Creature }  from "./Creature";
+import { Herbivore } from"./Herbivore";
 
-module.exports = class Predator extends Creature {
+export class Predator extends Creature {
   constructor(velocity = 1, healthPoints = 3, power = 1) {
     super(velocity, healthPoints);
     this.power = power;

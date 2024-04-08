@@ -1,11 +1,11 @@
-const Herbivore = require("../Creatures/Herbivore.cjs");
-const Predator = require("../Creatures/Predator.cjs");
-const Grass = require("../Objects/Grass.cjs");
-const Rock = require("../Objects/Rock.cjs");
-const Tree = require("../Objects/Tree.cjs");
-const Action = require("../Actions/Action.cjs");
+import { Herbivore } from "../Creatures/Herbivore";
+import { Predator } from "../Creatures/Predator";
+import { Grass } from "../Objects/Grass";
+import { Rock } from "../Objects/Rock";
+import { Tree } from "../Objects/Tree";
+import { Action } from "../Actions/Action";
 
-module.exports = class ArrangeAllObjects extends Action {
+export class ArrangeAllObjects extends Action {
   constructor(mapOfTheGame) {
     super(mapOfTheGame);
     this.pull = [Herbivore, Predator, Grass, Rock, Tree];

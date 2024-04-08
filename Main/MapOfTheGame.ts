@@ -1,6 +1,12 @@
-const Entity = require("./Entity.cjs");
+import { Entity } from  "./Entity";
 
-module.exports = class mapOfTheGame extends Entity {
+export class MapOfTheGame extends Entity {
+   width: number;
+   height: number;
+   size: number;
+   map: Map<number, number>;
+   quantity: Record<string, number>;
+
   constructor(width, height) {
     super();
     this.width = width;

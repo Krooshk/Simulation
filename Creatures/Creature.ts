@@ -1,7 +1,7 @@
-const Entity = require("../Main/Entity.cjs");
-const BFS = require("../Utils/BFS.cjs");
+import { Entity }  from "../Main/Entity";
+import { BFS }  from "../Utils/BFS";
 
-module.exports = class Creature extends Entity {
+export class Creature extends Entity {
   constructor(velocity, healthPoints) {
     super();
     this.velocity = velocity;
@@ -42,18 +42,19 @@ module.exports = class Creature extends Entity {
           }
         }
         stepLeft--;
-      } else {
-        const difference = pathForGoal.length - 1 - stepLeft;
-        const wasted = difference ? stepLeft : pathForGoal.length - 1;
-        const pos = pathForGoal[wasted];
-
-        const obj = mapOfTheGame.getEntity(pathForGoal[0]);
-
-        mapOfTheGame.moveEntity(pathForGoal[0], pos, obj);
-
-        pathForGoal.splice(0, wasted);
-        stepLeft -= wasted;
+        continue;
       }
+
+      const difference = pathForGoal.length - 1 - stepLeft;
+      const wasted = difference ? stepLeft : pathForGoal.length - 1;
+      const pos = pathForGoal[wasted];
+
+      const obj = mapOfTheGame.getEntity(pathForGoal[0]);
+
+      mapOfTheGame.moveEntity(pathForGoal[0], pos, obj);
+
+      pathForGoal.splice(0, wasted);
+      stepLeft -= wasted;
     }
     this.isWalked = true;
   }

@@ -1,4 +1,5 @@
-module.exports = class Renderer {
+export class Renderer {
+  mapOfTheGame: Map<number, number>;
   constructor(mapOfTheGame) {
     this.mapOfTheGame = mapOfTheGame;
   }

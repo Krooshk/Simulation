@@ -1,4 +1,4 @@
-const Neighbors = require("./Neighbors.cjs");
+import { Neighbors } from "./Neighbors";
 
 class BreadthFirstSearch {
   constructor() {
@@ -58,5 +58,5 @@ class BreadthFirstSearch {
   }
 }
 
-const BFS = new BreadthFirstSearch();
-module.exports = BFS;
+export const BFS = new BreadthFirstSearch();
+
