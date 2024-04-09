@@ -4,9 +4,14 @@ import { Grass } from "../Objects/Grass";
 import { Rock } from "../Objects/Rock";
 import { Tree } from "../Objects/Tree";
 import { Action } from "../Actions/Action";
+import { MapOfTheGame } from "../Main/MapOfTheGame";
+
+export type EntitiesType = Herbivore | Predator | Grass | Rock | Tree;
+type Constructible = new () => Herbivore | Predator | Grass | Rock | Tree;
 
 export class ArrangeAllObjects extends Action {
-  constructor(mapOfTheGame) {
+  pull: Constructible[];
+  constructor(mapOfTheGame: MapOfTheGame) {
     super(mapOfTheGame);
     this.pull = [Herbivore, Predator, Grass, Rock, Tree];
   }

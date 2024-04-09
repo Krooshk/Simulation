@@ -1,10 +1,11 @@
 import { Entity } from  "./Entity";
+import { EntitiesType } from "../Actions/ArrangeAllObjects";
 
 export class MapOfTheGame extends Entity {
    width: number;
    height: number;
    size: number;
-   map: Map<number, number>;
+   map: Map<string, EntitiesType>;
    quantity: Record<string, number>;
 
   constructor(width, height) {

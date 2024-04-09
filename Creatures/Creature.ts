@@ -1,8 +1,15 @@
 import { Entity }  from "../Main/Entity";
 import { BFS }  from "../Utils/BFS";
+import { MapOfTheGame } from "../Main/MapOfTheGame";
+import { Herbivore } from "./Herbivore";
+import { Grass } from "../Objects/Grass";
 
 export class Creature extends Entity {
-  constructor(velocity, healthPoints) {
+    velocity: number;
+    healthPoints: number;
+    isWalked: boolean;
+
+  constructor(velocity: number, healthPoints: number) {
     super();
     this.velocity = velocity;
     this.healthPoints = healthPoints;
@@ -12,7 +19,7 @@ export class Creature extends Entity {
     }
   }
 
-  makeMove(position, mapOfTheGame, goalClass, goalName, power) {
+  makeMove(position: string, mapOfTheGame: MapOfTheGame, goalClass?: Herbivore | Grass, goalName?: string, power?: number) {
     if (this.isWalked) return;
 
     const pathForGoal = BFS.search(position, mapOfTheGame, goalClass);

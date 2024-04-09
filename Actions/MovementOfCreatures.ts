@@ -1,8 +1,9 @@
 import { Creature }  from "../Creatures/Creature";
 import { Action }  from "../Actions/Action";
+import { MapOfTheGame } from "../Main/MapOfTheGame";
 
 export class MovementOfCreatures extends Action {
-  constructor(mapOfTheGame) {
+  constructor(mapOfTheGame: MapOfTheGame) {
     super(mapOfTheGame);
   }
 

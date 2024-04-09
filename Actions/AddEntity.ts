@@ -1,17 +1,20 @@
 import {Action} from "./Action";
+import { MapOfTheGame } from "../Main/MapOfTheGame";
+import { Grass } from "../Objects/Grass";
+import { Herbivore } from "../Creatures/Herbivore";
 
 export class AddEntity extends Action {
-	mapOfTheGame: Map<number, number>;
+	mapOfTheGame: MapOfTheGame;
     lowerLimit: number;
     percent: number;
     additionalElement: any;
     nameElement: string;
   constructor(
-    mapOfTheGame,
-    lowerLimit,
-    percent,
-    additionalElement,
-    nameElement
+    mapOfTheGame: MapOfTheGame,
+    lowerLimit: number,
+    percent: number,
+    additionalElement: Herbivore | Grass,
+    nameElement: string
   ) {
     super(mapOfTheGame);
     this.lowerLimit = lowerLimit;
