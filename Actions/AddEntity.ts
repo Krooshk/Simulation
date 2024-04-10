@@ -7,13 +7,13 @@ export class AddEntity extends Action {
 	mapOfTheGame: MapOfTheGame;
     lowerLimit: number;
     percent: number;
-    additionalElement: any;
+    additionalElement: new () => Herbivore | Grass;
     nameElement: string;
   constructor(
     mapOfTheGame: MapOfTheGame,
     lowerLimit: number,
     percent: number,
-    additionalElement: Herbivore | Grass,
+    additionalElement: new () => Herbivore | Grass,
     nameElement: string
   ) {
     super(mapOfTheGame);

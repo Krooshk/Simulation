@@ -13,10 +13,9 @@ import { AddHerbivores } from "../Actions/AddHerbivores";
 class Simulation {
   count: number;
   play: boolean;
-  mapOfTheGame: Map<number, number>;
+  mapOfTheGame: MapOfTheGame;
   initActions: [];
   turnActions: [];
-  renderer: 
 
   constructor() {
     this.count = 0;

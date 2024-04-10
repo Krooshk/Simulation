@@ -7,7 +7,7 @@ import { Action } from "../Actions/Action";
 import { MapOfTheGame } from "../Main/MapOfTheGame";
 
 export type EntitiesType = Herbivore | Predator | Grass | Rock | Tree;
-type Constructible = new () => Herbivore | Predator | Grass | Rock | Tree;
+export type Constructible = new () => Herbivore | Predator | Grass | Rock | Tree;
 
 export class ArrangeAllObjects extends Action {
   pull: Constructible[];

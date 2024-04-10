@@ -1,5 +1,6 @@
 import { Entity } from  "./Entity";
 import { EntitiesType } from "../Actions/ArrangeAllObjects";
+import { Constructible } from "../Actions/ArrangeAllObjects";
 
 export class MapOfTheGame extends Entity {
    width: number;
@@ -8,7 +9,7 @@ export class MapOfTheGame extends Entity {
    map: Map<string, EntitiesType>;
    quantity: Record<string, number>;
 
-  constructor(width, height) {
+  constructor(width: number, height: number) {
     super();
     this.width = width;
     this.height = height;
@@ -17,36 +18,36 @@ export class MapOfTheGame extends Entity {
     this.quantity = { Herbivore: 0, Predator: 0, Grass: 0, Rock: 0, Tree: 0 };
   }
 
-  addEntity(pos, obj) {
+  addEntity(pos: string, obj: EntitiesType) {
     this.map.set(pos, obj);
     this.incQuantity(obj);
   }
 
-  removeEntity(pos) {
+  removeEntity(pos: string) {
     this.decQuantity(pos);
     this.map.delete(pos);
   }
 
-  getEntity(pos) {
+  getEntity(pos: string) {
     return this.map.get(pos);
   }
 
-  moveEntity(from, to, obj) {
+  moveEntity(from: string, to: string, obj: EntitiesType) {
     this.removeEntity(from);
     this.addEntity(to, obj);
   }
 
-  incQuantity(obj) {
+  incQuantity(obj: EntitiesType) {
     const name = obj.constructor.name;
     this.quantity[name] = this.quantity[name] + 1;
   }
 
-  decQuantity(pos) {
+  decQuantity(pos:string) {
     const name = this.getEntity(pos).constructor.name;
     this.quantity[name] = this.quantity[name] - 1;
   }
 
-  getQuantity(name) {
+  getQuantity(name: string) {
     return this.quantity[name];
   }
 };

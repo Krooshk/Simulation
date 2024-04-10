@@ -1,6 +1,8 @@
+import { MapOfTheGame } from "./MapOfTheGame";
+
 export class Renderer {
-  mapOfTheGame: Map<number, number>;
-  constructor(mapOfTheGame) {
+  mapOfTheGame: MapOfTheGame;
+  constructor(mapOfTheGame: MapOfTheGame) {
     this.mapOfTheGame = mapOfTheGame;
   }
 

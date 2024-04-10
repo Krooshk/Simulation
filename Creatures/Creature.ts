@@ -19,7 +19,7 @@ export class Creature extends Entity {
     }
   }
 
-  makeMove(position: string, mapOfTheGame: MapOfTheGame, goalClass?: Herbivore | Grass, goalName?: string, power?: number) {
+  makeMove(position: string, mapOfTheGame: MapOfTheGame, goalClass?: new () => Herbivore | Grass, goalName?: string, power?: number) {
     if (this.isWalked) return;
 
     const pathForGoal = BFS.search(position, mapOfTheGame, goalClass);
@@ -37,7 +37,7 @@ export class Creature extends Entity {
           this.healthPoints++;
         }
 
-        if (goalName === "Herbivore") {
+        if (goalClass instanceof Herbivore) {
           const herbivore = mapOfTheGame.getEntity(pos);
 
           if (power > herbivore.healthPoints) {
