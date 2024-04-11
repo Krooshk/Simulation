@@ -1,4 +1,4 @@
-import { AddEntity } from "../Actions/AddEntity";
+import { AddEntity } from "./AddEntity";
 import { Herbivore } from "../Creatures/Herbivore";
 import { MapOfTheGame } from "../Main/MapOfTheGame";
 

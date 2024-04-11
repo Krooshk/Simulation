@@ -9,13 +9,15 @@ import { ArrangeAllObjects }  from "../Actions/ArrangeAllObjects";
 import { MovementOfCreatures } from "../Actions/MovementOfCreatures";
 import { AddGrass } from "../Actions/AddGrass";
 import { AddHerbivores } from "../Actions/AddHerbivores";
+import { TurnActionsType } from "../types/types";
 
 class Simulation {
-  count: number;
   play: boolean;
+  count: number;
   mapOfTheGame: MapOfTheGame;
-  initActions: [];
-  turnActions: [];
+  initActions: ArrangeAllObjects[];
+  turnActions: TurnActionsType[];
+  renderer: Renderer;
 
   constructor() {
     this.count = 0;

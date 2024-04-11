@@ -11,6 +11,6 @@ export class Herbivore extends Creature {
   }
 
   makeMove(position: string, mapOfTheGame: MapOfTheGame) {
-    super.makeMove(position, mapOfTheGame, Grass, "Grass");
+    super.makeMove(position, mapOfTheGame, new Grass, "Grass");
   }
 };

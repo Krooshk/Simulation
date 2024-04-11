@@ -1,5 +1,5 @@
 import { Grass } from "../Objects/Grass";
-import { AddEntity } from "../Actions/AddEntity";
+import { AddEntity } from "./AddEntity";
 import { MapOfTheGame } from "../Main/MapOfTheGame";
 
 export class AddGrass extends AddEntity {

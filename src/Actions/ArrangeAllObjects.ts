@@ -3,7 +3,7 @@ import { Predator } from "../Creatures/Predator";
 import { Grass } from "../Objects/Grass";
 import { Rock } from "../Objects/Rock";
 import { Tree } from "../Objects/Tree";
-import { Action } from "../Actions/Action";
+import { Action } from "./Action";
 import { MapOfTheGame } from "../Main/MapOfTheGame";
 
 export type EntitiesType = Herbivore | Predator | Grass | Rock | Tree;

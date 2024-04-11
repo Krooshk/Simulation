@@ -13,6 +13,6 @@ export class Predator extends Creature {
   }
 
   makeMove(position: string, mapOfTheGame: MapOfTheGame) {
-    super.makeMove(position, mapOfTheGame, Herbivore, "Herbivore", this.power);
+    super.makeMove(position, mapOfTheGame, new Herbivore, "Herbivore", this.power);
   }
 };

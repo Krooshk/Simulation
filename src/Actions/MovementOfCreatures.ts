@@ -1,5 +1,5 @@
 import { Creature }  from "../Creatures/Creature";
-import { Action }  from "../Actions/Action";
+import { Action }  from "./Action";
 import { MapOfTheGame } from "../Main/MapOfTheGame";
 
 export class MovementOfCreatures extends Action {

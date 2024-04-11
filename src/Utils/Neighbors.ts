@@ -1,5 +1,5 @@
 export class Neighbors {
-  getNeighbors(position, width, height) {
+  getNeighbors(position: string, width: number, height: number) {
     const neighbors = [];
 
     const [x, y] = position.split("/").map((el) => Number(el));
@@ -47,7 +47,7 @@ export class Neighbors {
     return neighbors;
   }
 
-  transformToKey(x, y) {
+  transformToKey(x: number, y: number) {
     return [x, y].join("/");
   }
 };

@@ -1,13 +1,13 @@
-import { Entity }  from "../Main/Entity";
-import { BFS }  from "../Utils/BFS";
+import { Entity } from "../Main/Entity";
+import { BFS } from "../Utils/BFS";
 import { MapOfTheGame } from "../Main/MapOfTheGame";
 import { Herbivore } from "./Herbivore";
 import { Grass } from "../Objects/Grass";
 
 export class Creature extends Entity {
-    velocity: number;
-    healthPoints: number;
-    isWalked: boolean;
+  velocity: number;
+  healthPoints: number;
+  isWalked: boolean;
 
   constructor(velocity: number, healthPoints: number) {
     super();
@@ -19,7 +19,13 @@ export class Creature extends Entity {
     }
   }
 
-  makeMove(position: string, mapOfTheGame: MapOfTheGame, goalClass?: new () => Herbivore | Grass, goalName?: string, power?: number) {
+  makeMove(
+    position: string,
+    mapOfTheGame: MapOfTheGame,
+    goalClass?: Herbivore | Grass,
+    goalName?: string,
+    power?: number
+  ) {
     if (this.isWalked) return;
 
     const pathForGoal = BFS.search(position, mapOfTheGame, goalClass);
@@ -37,15 +43,16 @@ export class Creature extends Entity {
           this.healthPoints++;
         }
 
-        if (goalClass instanceof Herbivore) {
+        if (goalName === "Herbivore") {
           const herbivore = mapOfTheGame.getEntity(pos);
-
-          if (power > herbivore.healthPoints) {
-            mapOfTheGame.removeEntity(pos);
-            this.healthPoints += herbivore.healthPoints;
-          } else {
-            herbivore.healthPoints -= power;
-            this.healthPoints += power;
+          if (herbivore instanceof Herbivore) {
+            if (power > herbivore.healthPoints) {
+              mapOfTheGame.removeEntity(pos);
+              this.healthPoints += herbivore.healthPoints;
+            } else {
+              herbivore.healthPoints -= power;
+              this.healthPoints += power;
+            }
           }
         }
         stepLeft--;
@@ -65,4 +72,4 @@ export class Creature extends Entity {
     }
     this.isWalked = true;
   }
-};
+}
