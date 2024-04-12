@@ -8,23 +8,25 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, "./dist"),
-    filename: "app-bundle.js", // <--- Will be compiled to this single file
+    filename: "app-bundle.js",
   },
   resolve: {
-    extensions: [".ts", ".tsx", ".js"],
+    extensions: [".ts", ".tsx"],
   },
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
-        // loader: "ts-loader",
-        exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-          options: {
-            presets: ["@babel/preset-env"],
+        test: /\.ts?$/,
+        use: [
+          { loader: "ts-loader" },
+          {
+            loader: "babel-loader",
+            options: {
+              presets: ["@babel/preset-env", "@babel/preset-typescript"],
+            },
           },
-        },
+        ],
+        exclude: /node_modules/,
       },
     ],
   },

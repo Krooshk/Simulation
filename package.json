@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "start": "npm ts-node ./Main/main.ts"
+    "start": "npm ts-node ./Main/main.ts",
+    "build": "webpack"
   },
   "dependencies": {
     "prompt-sync": "^4.2.0"
@@ -8,6 +9,7 @@
   "devDependencies": {
     "@babel/core": "^7.24.4",
     "@babel/preset-env": "^7.24.4",
+    "@babel/preset-typescript": "^7.24.1",
     "@types/node": "^20.12.5",
     "babel-loader": "^9.1.3",
     "ts-loader": "^9.5.1",
