@@ -1,5 +1,5 @@
-import { Creature }  from "./Creature";
-import { Herbivore } from"./Herbivore";
+import { Creature } from "./Creature";
+import { Herbivore } from "./Herbivore";
 import { ViewEntityType } from "../types/types";
 import { MapOfTheGame } from "../Main/MapOfTheGame";
 
@@ -13,6 +13,12 @@ export class Predator extends Creature {
   }
 
   makeMove(position: string, mapOfTheGame: MapOfTheGame) {
-    super.makeMove(position, mapOfTheGame, new Herbivore, "Herbivore", this.power);
+    super.makeMove(
+      position,
+      mapOfTheGame,
+      new Herbivore(),
+      "Herbivore",
+      this.power
+    );
   }
-};
+}

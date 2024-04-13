@@ -1,5 +1,5 @@
 import { Creature } from "./Creature";
-import { Grass } from"../Objects/Grass";
+import { Grass } from "../Objects/Grass";
 import { ViewEntityType } from "../types/types";
 import { MapOfTheGame } from "../Main/MapOfTheGame";
 
@@ -11,6 +11,6 @@ export class Herbivore extends Creature {
   }
 
   makeMove(position: string, mapOfTheGame: MapOfTheGame) {
-    super.makeMove(position, mapOfTheGame, new Grass, "Grass");
+    super.makeMove(position, mapOfTheGame, new Grass(), "Grass");
   }
-};
+}

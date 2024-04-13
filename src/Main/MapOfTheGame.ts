@@ -1,16 +1,13 @@
-import { Entity } from  "./Entity";
 import { EntitiesType } from "../Actions/ArrangeAllObjects";
-import { Constructible } from "../Actions/ArrangeAllObjects";
 
-export class MapOfTheGame extends Entity {
-   width: number;
-   height: number;
-   size: number;
-   map: Map<string, EntitiesType>;
-   quantity: Record<string, number>;
+export class MapOfTheGame {
+  width: number;
+  height: number;
+  size: number;
+  map: Map<string, EntitiesType>;
+  quantity: Record<string, number>;
 
   constructor(width: number, height: number) {
-    super();
     this.width = width;
     this.height = height;
     this.size = width * height;
@@ -42,7 +39,7 @@ export class MapOfTheGame extends Entity {
     this.quantity[name] = this.quantity[name] + 1;
   }
 
-  decQuantity(pos:string) {
+  decQuantity(pos: string) {
     const name = this.getEntity(pos).constructor.name;
     this.quantity[name] = this.quantity[name] - 1;
   }
@@ -50,4 +47,4 @@ export class MapOfTheGame extends Entity {
   getQuantity(name: string) {
     return this.quantity[name];
   }
-};
+}
