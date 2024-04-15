@@ -31,9 +31,13 @@ export class ArrangeAllObjects extends Action {
   }
 
   // --simple test--
-  //   produce() {
-  //     const { width, height, map } = this.mapOfTheGame;
-  //     map.set(`${0}/${0}`, new Herbivore()); // x/y coordinates
-  //     map.set(`${width - 1}/${height - 1}`, new Predator()); // x/y coordinates
-  //   }
+    // produce() {
+    //   const { width, height, map } = this.mapOfTheGame;
+    //   const herbivore = new Herbivore();
+    // //   const predator = new Predator();
+    //   this.mapOfTheGame.addEntity(`${0}/${0}`, herbivore);
+    // //   this.mapOfTheGame.addEntity(`${width - 1}/${height - 1}`, predator);
+    //   map.set(`${0}/${0}`, herbivore); // x/y coordinates
+    // //   map.set(`${width - 1}/${height - 1}`, predator); // x/y coordinates
+    // }
 };

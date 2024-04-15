@@ -1,14 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BFS = void 0;
-const Herbivore_1 = require("../Creatures/Herbivore");
-const Grass_1 = require("../Objects/Grass");
 const Neighbors_1 = require("./Neighbors");
 class BreadthFirstSearch {
     constructor() {
         this.neighbors = new Neighbors_1.Neighbors();
     }
     search(position, mapOfTheGame, goal) {
+        // console.log(goal);
         const { width, height, map } = mapOfTheGame;
         const queue = [];
         queue.push([position]);
@@ -26,13 +25,13 @@ class BreadthFirstSearch {
             visited.push(lastPosition);
             const neighborsPositions = this.neighbors.getNeighbors(lastPosition, width, height);
             const filterPositions = neighborsPositions.filter((pos) => {
+                var _a;
                 const lastPositionQueue = queue.map((array) => array.at(-1));
                 if (lastPositionQueue.includes(pos)) {
                     return false;
                 }
                 // BUG?: check condition
-                if ((!visited.includes(pos) && map.get(pos) instanceof Herbivore_1.Herbivore) ||
-                    (!visited.includes(pos) && map.get(pos) instanceof Grass_1.Grass)) {
+                if (!visited.includes(pos) && ((_a = map.get(pos)) === null || _a === void 0 ? void 0 : _a.name) === goal) {
                     return true;
                 }
                 if (!visited.includes(pos) && !map.get(pos)) {

@@ -4,7 +4,7 @@ import { Grass } from "../Objects/Grass";
 import { BFS } from "../Utils/BFS";
 import { Herbivore } from "./Herbivore";
 
-export class Creature extends Entity {
+export abstract class Creature extends Entity {
   velocity: number;
   healthPoints: number;
   isWalked: boolean;
@@ -14,15 +14,11 @@ export class Creature extends Entity {
     this.velocity = velocity;
     this.healthPoints = healthPoints;
     this.isWalked = false;
-    if (this.constructor == Creature) {
-      throw new Error("Abstract classes can't be instantiated.");
-    }
   }
 
   makeMove(
     position: string,
     mapOfTheGame: MapOfTheGame,
-    goalClass?: Herbivore | Grass,
     goalName?: string,
     power?: number
   ) {

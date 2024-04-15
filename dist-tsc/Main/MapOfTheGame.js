@@ -25,11 +25,11 @@ class MapOfTheGame {
         this.addEntity(to, obj);
     }
     incQuantity(obj) {
-        const name = obj.constructor.name;
+        const { name } = obj;
         this.quantity[name] = this.quantity[name] + 1;
     }
     decQuantity(pos) {
-        const name = this.getEntity(pos).constructor.name;
+        const { name } = this.getEntity(pos);
         this.quantity[name] = this.quantity[name] - 1;
     }
     getQuantity(name) {

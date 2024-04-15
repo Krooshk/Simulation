@@ -10,11 +10,8 @@ class Creature extends Entity_1.Entity {
         this.velocity = velocity;
         this.healthPoints = healthPoints;
         this.isWalked = false;
-        if (this.constructor == Creature) {
-            throw new Error("Abstract classes can't be instantiated.");
-        }
     }
-    makeMove(position, mapOfTheGame, goalClass, goalName, power) {
+    makeMove(position, mapOfTheGame, goalName, power) {
         if (this.isWalked)
             return;
         const pathForGoal = BFS_1.BFS.search(position, mapOfTheGame, goalName);

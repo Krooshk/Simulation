@@ -35,12 +35,12 @@ export class MapOfTheGame {
   }
 
   incQuantity(obj: EntitiesType) {
-    const name = obj.constructor.name;
+    const { name } = obj;
     this.quantity[name] = this.quantity[name] + 1;
   }
 
   decQuantity(pos: string) {
-    const name = this.getEntity(pos).constructor.name;
+    const { name } = this.getEntity(pos);
     this.quantity[name] = this.quantity[name] - 1;
   }
 

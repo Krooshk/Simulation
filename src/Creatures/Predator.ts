@@ -1,5 +1,4 @@
 import { Creature } from "./Creature";
-import { Herbivore } from "./Herbivore";
 import { ViewEntityType } from "../types/types";
 import { MapOfTheGame } from "../Main/MapOfTheGame";
 
@@ -18,7 +17,6 @@ export class Predator extends Creature {
     super.makeMove(
       position,
       mapOfTheGame,
-      new Herbivore(),
       "Herbivore",
       this.power
     );

@@ -14,6 +14,7 @@ class BreadthFirstSearch {
     mapOfTheGame: MapOfTheGame,
     goal: string,
   ) {
+    // console.log(goal);
     const { width, height, map } = mapOfTheGame;
     const queue = [];
     queue.push([position]);
@@ -28,7 +29,7 @@ class BreadthFirstSearch {
       const node = map.get(lastPosition);
 
       //BUG?: check condition 
-      if (node?.name &&  node.name === goal) {
+      if (node?.name && node.name === goal) {
         return path;
       }
 
@@ -48,10 +49,7 @@ class BreadthFirstSearch {
         }
 
         // BUG?: check condition
-        if (
-          (!visited.includes(pos) && map.get(pos) instanceof Herbivore) ||
-          (!visited.includes(pos) && map.get(pos) instanceof Grass)
-        ) {
+        if (!visited.includes(pos) && map.get(pos)?.name === goal) {
           return true;
         }
         if (!visited.includes(pos) && !map.get(pos)) {
