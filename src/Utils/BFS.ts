@@ -1,7 +1,7 @@
-import { Neighbors } from "./Neighbors";
+import { Herbivore } from "../Creatures/Herbivore";
 import { MapOfTheGame } from "../Main/MapOfTheGame";
 import { Grass } from "../Objects/Grass";
-import { Herbivore } from "../Creatures/Herbivore";
+import { Neighbors } from "./Neighbors";
 
 class BreadthFirstSearch {
   neighbors: Neighbors;
@@ -9,7 +9,11 @@ class BreadthFirstSearch {
     this.neighbors = new Neighbors();
   }
 
-  search(position: string, mapOfTheGame: MapOfTheGame, goal: Herbivore | Grass) {
+  search(
+    position: string,
+    mapOfTheGame: MapOfTheGame,
+    goal: Herbivore | Grass
+  ) {
     const { width, height, map } = mapOfTheGame;
     const queue = [];
     queue.push([position]);
@@ -22,8 +26,9 @@ class BreadthFirstSearch {
       if (visited.includes(lastPosition)) continue;
 
       const node = map.get(lastPosition);
-      //@ts-ignore
-      if (node instanceof goal)  {
+
+      // BUG?: check condition
+      if (node instanceof Herbivore || node instanceof Grass) {
         return path;
       }
 
@@ -41,8 +46,12 @@ class BreadthFirstSearch {
         if (lastPositionQueue.includes(pos)) {
           return false;
         }
-        //@ts-ignore
-        if (!visited.includes(pos) && map.get(pos) instanceof goal) {
+
+        // BUG?: check condition
+        if (
+          (!visited.includes(pos) && map.get(pos) instanceof Herbivore) ||
+          (!visited.includes(pos) && map.get(pos) instanceof Grass)
+        ) {
           return true;
         }
         if (!visited.includes(pos) && !map.get(pos)) {
@@ -64,4 +73,3 @@ class BreadthFirstSearch {
 }
 
 export const BFS = new BreadthFirstSearch();
-

@@ -3,20 +3,20 @@ const readline = require("readline").createInterface({
   output: process.stdout,
 });
 
-import  { MapOfTheGame } from "./MapOfTheGame";
-import { Renderer } from "./Renderer";
-import { ArrangeAllObjects }  from "../Actions/ArrangeAllObjects";
-import { MovementOfCreatures } from "../Actions/MovementOfCreatures";
+import { Action } from "../Actions/Action";
 import { AddGrass } from "../Actions/AddGrass";
 import { AddHerbivores } from "../Actions/AddHerbivores";
-import { TurnActionsType } from "../types/types";
+import { ArrangeAllObjects } from "../Actions/ArrangeAllObjects";
+import { MovementOfCreatures } from "../Actions/MovementOfCreatures";
+import { MapOfTheGame } from "./MapOfTheGame";
+import { Renderer } from "./Renderer";
 
 class Simulation {
   play: boolean;
   count: number;
   mapOfTheGame: MapOfTheGame;
   initActions: ArrangeAllObjects[];
-  turnActions: TurnActionsType[];
+  turnActions: Action[];
   renderer: Renderer;
 
   constructor() {

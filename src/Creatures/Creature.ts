@@ -1,8 +1,8 @@
 import { Entity } from "../Main/Entity";
-import { BFS } from "../Utils/BFS";
 import { MapOfTheGame } from "../Main/MapOfTheGame";
-import { Herbivore } from "./Herbivore";
 import { Grass } from "../Objects/Grass";
+import { BFS } from "../Utils/BFS";
+import { Herbivore } from "./Herbivore";
 
 export class Creature extends Entity {
   velocity: number;
