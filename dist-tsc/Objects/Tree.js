@@ -6,6 +6,7 @@ class Tree extends Entity_1.Entity {
     constructor() {
         super();
         this.view = "🌳";
+        this.name = "Tree";
     }
 }
 exports.Tree = Tree;

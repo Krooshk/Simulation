@@ -19,7 +19,8 @@ class BreadthFirstSearch {
             if (visited.includes(lastPosition))
                 continue;
             const node = map.get(lastPosition);
-            if (node instanceof Herbivore_1.Herbivore || node instanceof Grass_1.Grass) {
+            //BUG?: check condition 
+            if ((node === null || node === void 0 ? void 0 : node.name) && node.name === goal) {
                 return path;
             }
             visited.push(lastPosition);
@@ -29,6 +30,7 @@ class BreadthFirstSearch {
                 if (lastPositionQueue.includes(pos)) {
                     return false;
                 }
+                // BUG?: check condition
                 if ((!visited.includes(pos) && map.get(pos) instanceof Herbivore_1.Herbivore) ||
                     (!visited.includes(pos) && map.get(pos) instanceof Grass_1.Grass)) {
                     return true;

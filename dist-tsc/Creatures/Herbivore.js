@@ -7,6 +7,7 @@ class Herbivore extends Creature_1.Creature {
     constructor(velocity = 1, healthPoints = 3) {
         super(velocity, healthPoints);
         this.view = "🐄";
+        this.name = "Herbivore";
     }
     makeMove(position, mapOfTheGame) {
         super.makeMove(position, mapOfTheGame, new Grass_1.Grass(), "Grass");

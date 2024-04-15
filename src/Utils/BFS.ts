@@ -12,7 +12,7 @@ class BreadthFirstSearch {
   search(
     position: string,
     mapOfTheGame: MapOfTheGame,
-    goal: Herbivore | Grass
+    goal: string,
   ) {
     const { width, height, map } = mapOfTheGame;
     const queue = [];
@@ -27,8 +27,8 @@ class BreadthFirstSearch {
 
       const node = map.get(lastPosition);
 
-      // BUG?: check condition
-      if (node instanceof Herbivore || node instanceof Grass) {
+      //BUG?: check condition 
+      if (node?.name &&  node.name === goal) {
         return path;
       }
 

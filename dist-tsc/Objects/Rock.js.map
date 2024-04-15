@@ -1,1 +1,1 @@
-{"version":3,"file":"Rock.js","sourceRoot":"","sources":["../../src/Objects/Rock.ts"],"names":[],"mappings":";;;AAAA,2CAAwC;AAGxC,MAAa,IAAK,SAAQ,eAAM;IAE9B;QACE,KAAK,EAAE,CAAC;QACR,IAAI,CAAC,IAAI,GAAG,IAAI,CAAC;IACnB,CAAC;CACF;AAND,oBAMC;AAAA,CAAC"}
+{"version":3,"file":"Rock.js","sourceRoot":"","sources":["../../src/Objects/Rock.ts"],"names":[],"mappings":";;;AAAA,2CAAwC;AAGxC,MAAa,IAAK,SAAQ,eAAM;IAG9B;QACE,KAAK,EAAE,CAAC;QACR,IAAI,CAAC,IAAI,GAAG,IAAI,CAAC;QACpB,IAAI,CAAC,IAAI,GAAG,MAAM,CAAC;IAClB,CAAC;CACF;AARD,oBAQC;AAAA,CAAC"}

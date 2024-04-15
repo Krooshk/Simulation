@@ -28,7 +28,7 @@ export class Creature extends Entity {
   ) {
     if (this.isWalked) return;
 
-    const pathForGoal = BFS.search(position, mapOfTheGame, goalClass);
+    const pathForGoal = BFS.search(position, mapOfTheGame, goalName);
     let stepLeft = this.velocity;
 
     if (!pathForGoal) return;

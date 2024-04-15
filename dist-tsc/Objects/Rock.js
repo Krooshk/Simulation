@@ -6,6 +6,7 @@ class Rock extends Entity_1.Entity {
     constructor() {
         super();
         this.view = "🗿";
+        this.name = "Rock";
     }
 }
 exports.Rock = Rock;

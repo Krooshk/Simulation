@@ -8,6 +8,7 @@ class Predator extends Creature_1.Creature {
         super(velocity, healthPoints);
         this.power = power;
         this.view = "🐺";
+        this.name = "Predator";
     }
     makeMove(position, mapOfTheGame) {
         super.makeMove(position, mapOfTheGame, new Herbivore_1.Herbivore(), "Herbivore", this.power);

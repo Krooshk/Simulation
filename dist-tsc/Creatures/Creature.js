@@ -17,7 +17,7 @@ class Creature extends Entity_1.Entity {
     makeMove(position, mapOfTheGame, goalClass, goalName, power) {
         if (this.isWalked)
             return;
-        const pathForGoal = BFS_1.BFS.search(position, mapOfTheGame, goalClass);
+        const pathForGoal = BFS_1.BFS.search(position, mapOfTheGame, goalName);
         let stepLeft = this.velocity;
         if (!pathForGoal)
             return;
