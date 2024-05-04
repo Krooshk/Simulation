@@ -18,15 +18,16 @@ export class ArrangeAllObjects extends Action {
 
   produce() {
     const { width, height } = this.mapOfTheGame;
-    for (let i = 0; i < height; i++) {
-      for (let j = 0; j < width; j++) {
+    const cells = height*width;
+    for (let i = 0; i < cells; i++) {
         if (Math.random() < 0.5) {
+          const y = Math.floor(i / height);
+          const x = i % width;
           const obj = new this.pull[Math.floor(Math.random() * 5)]();
-          const pos = `${j}/${i}`; // x/y coordinates
+          const pos = `${x}/${y}`; // x/y coordinates
 
           this.mapOfTheGame.addEntity(pos, obj);
         }
-      }
     }
   }
 

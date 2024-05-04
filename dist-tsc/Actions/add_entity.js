@@ -15,17 +15,18 @@ class AddEntity extends action_1.Action {
         const leftElements = this.mapOfTheGame.getQuantity(this.nameElement);
         let additionalCount = Math.floor((size * this.percent) / 100);
         if (leftElements < this.lowerLimit) {
-            loop1: for (let i = 0; i < height; i++) {
-                loop2: for (let j = 0; j < width; j++) {
-                    if (additionalCount === 0) {
-                        break loop1;
-                    }
-                    const pos = `${j}/${i}`;
-                    const isEmpty = !Boolean(this.mapOfTheGame.getEntity(pos));
-                    if (isEmpty) {
-                        this.mapOfTheGame.addEntity(pos, new this.additionalElement());
-                        additionalCount--;
-                    }
+            const cells = height * width;
+            for (let i = 0; i < cells; i++) {
+                if (additionalCount === 0) {
+                    break;
+                }
+                const y = Math.floor(i / height);
+                const x = i % width;
+                const pos = `${x}/${y}`;
+                const isEmpty = !Boolean(this.mapOfTheGame.getEntity(pos));
+                if (isEmpty) {
+                    this.mapOfTheGame.addEntity(pos, new this.additionalElement());
+                    additionalCount--;
                 }
             }
         }

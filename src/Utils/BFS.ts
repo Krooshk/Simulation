@@ -1,6 +1,4 @@
-import { Herbivore } from "../creatures/herbivore";
 import { MapOfTheGame } from "../main/map_of_the_game";
-import { Grass } from "../objects/grass";
 import { Neighbors } from "./neighbors";
 
 class BreadthFirstSearch {
@@ -14,7 +12,6 @@ class BreadthFirstSearch {
     mapOfTheGame: MapOfTheGame,
     goal: string,
   ) {
-    // console.log(goal);
     const { width, height, map } = mapOfTheGame;
     const queue = [];
     queue.push([position]);
@@ -28,7 +25,6 @@ class BreadthFirstSearch {
 
       const node = map.get(lastPosition);
 
-      //BUG?: check condition 
       if (node?.name && node.name === goal) {
         return path;
       }
@@ -48,7 +44,6 @@ class BreadthFirstSearch {
           return false;
         }
 
-        // BUG?: check condition
         if (!visited.includes(pos) && map.get(pos)?.name === goal) {
           return true;
         }
