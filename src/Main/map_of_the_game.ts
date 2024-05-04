@@ -1,4 +1,4 @@
-import { EntitiesType } from "../Actions/ArrangeAllObjects";
+import { EntitiesType } from "../actions/arrange_all_objects";
 
 export class MapOfTheGame {
   width: number;

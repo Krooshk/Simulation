@@ -3,13 +3,13 @@ const readline = require("readline").createInterface({
   output: process.stdout,
 });
 
-import { Action } from "../Actions/Action";
-import { AddGrass } from "../Actions/AddGrass";
-import { AddHerbivores } from "../Actions/AddHerbivores";
-import { ArrangeAllObjects } from "../Actions/ArrangeAllObjects";
-import { MovementOfCreatures } from "../Actions/MovementOfCreatures";
-import { MapOfTheGame } from "./MapOfTheGame";
-import { Renderer } from "./Renderer";
+import { Action } from "../actions/action";
+import { AddGrass } from "../actions/add_grass";
+import { AddHerbivores } from "../actions/add_herbivores";
+import { ArrangeAllObjects } from "../actions/arrange_all_objects";
+import { MovementOfCreatures } from "../actions/movement_of_creatures";
+import { MapOfTheGame } from "./map_of_the_game";
+import { Renderer } from "./renderer";
 
 class Simulation {
   play: boolean;

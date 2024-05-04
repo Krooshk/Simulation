@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Predator = void 0;
-const Creature_1 = require("./Creature");
-class Predator extends Creature_1.Creature {
+const creature_1 = require("./creature");
+class Predator extends creature_1.Creature {
     constructor(velocity = 1, healthPoints = 3, power = 1) {
         super(velocity, healthPoints);
         this.power = power;
@@ -14,4 +14,4 @@ class Predator extends Creature_1.Creature {
     }
 }
 exports.Predator = Predator;
-//# sourceMappingURL=Predator.js.map
+//# sourceMappingURL=predator.js.map

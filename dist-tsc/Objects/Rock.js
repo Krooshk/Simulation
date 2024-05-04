@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Rock = void 0;
-const Entity_1 = require("../Main/Entity");
-class Rock extends Entity_1.Entity {
+const entity_1 = require("../main/entity");
+class Rock extends entity_1.Entity {
     constructor() {
         super();
         this.view = "🗿";
@@ -11,4 +11,4 @@ class Rock extends Entity_1.Entity {
 }
 exports.Rock = Rock;
 ;
-//# sourceMappingURL=Rock.js.map
+//# sourceMappingURL=rock.js.map

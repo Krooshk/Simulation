@@ -1,4 +1,4 @@
-import { MapOfTheGame } from "./MapOfTheGame";
+import { MapOfTheGame } from "./map_of_the_game";
 
 export class Renderer {
   mapOfTheGame: MapOfTheGame;

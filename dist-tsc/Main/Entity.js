@@ -7,4 +7,4 @@ class Entity {
 }
 exports.Entity = Entity;
 ;
-//# sourceMappingURL=Entity.js.map
+//# sourceMappingURL=entity.js.map

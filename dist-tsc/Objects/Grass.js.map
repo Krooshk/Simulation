@@ -1,1 +1,1 @@
-{"version":3,"file":"Grass.js","sourceRoot":"","sources":["../../src/Objects/Grass.ts"],"names":[],"mappings":";;;AAAA,2CAAwC;AAGxC,MAAa,KAAM,SAAQ,eAAM;IAG/B;QACE,KAAK,EAAE,CAAC;QACR,IAAI,CAAC,IAAI,GAAG,IAAI,CAAC;QACpB,IAAI,CAAC,IAAI,GAAG,OAAO,CAAC;IACnB,CAAC;CACF;AARD,sBAQC;AAAA,CAAC"}
+{"version":3,"file":"grass.js","sourceRoot":"","sources":["../../src/objects/grass.ts"],"names":[],"mappings":";;;AAAA,2CAAwC;AAGxC,MAAa,KAAM,SAAQ,eAAM;IAG/B;QACE,KAAK,EAAE,CAAC;QACR,IAAI,CAAC,IAAI,GAAG,IAAI,CAAC;QACpB,IAAI,CAAC,IAAI,GAAG,OAAO,CAAC;IACnB,CAAC;CACF;AARD,sBAQC;AAAA,CAAC"}

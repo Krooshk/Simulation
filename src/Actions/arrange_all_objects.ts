@@ -1,10 +1,10 @@
-import { Herbivore } from "../Creatures/Herbivore";
-import { Predator } from "../Creatures/Predator";
-import { Grass } from "../Objects/Grass";
-import { Rock } from "../Objects/Rock";
-import { Tree } from "../Objects/Tree";
-import { Action } from "./Action";
-import { MapOfTheGame } from "../Main/MapOfTheGame";
+import { Herbivore } from "../creatures/herbivore";
+import { Predator } from "../creatures/predator";
+import { Grass } from "../objects/grass";
+import { Rock } from "../objects/rock";
+import { Tree } from "../objects/tree";
+import { Action } from "./action";
+import { MapOfTheGame } from "../main/map_of_the_game";
 
 export type EntitiesType = Herbivore | Predator | Grass | Rock | Tree;
 export type Constructible = new () => Herbivore | Predator | Grass | Rock | Tree;

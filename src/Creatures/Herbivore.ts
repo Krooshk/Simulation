@@ -1,6 +1,6 @@
-import { Creature } from "./Creature";
+import { Creature } from "./creature";
 import { ViewEntityType } from "../types/types";
-import { MapOfTheGame } from "../Main/MapOfTheGame";
+import { MapOfTheGame } from "../main/map_of_the_game";
 
 export class Herbivore extends Creature {
   view: ViewEntityType;

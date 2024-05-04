@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BFS = void 0;
-const Neighbors_1 = require("./Neighbors");
+const neighbors_1 = require("./neighbors");
 class BreadthFirstSearch {
     constructor() {
-        this.neighbors = new Neighbors_1.Neighbors();
+        this.neighbors = new neighbors_1.Neighbors();
     }
     search(position, mapOfTheGame, goal) {
         // console.log(goal);
@@ -50,4 +50,4 @@ class BreadthFirstSearch {
     }
 }
 exports.BFS = new BreadthFirstSearch();
-//# sourceMappingURL=BFS.js.map
+//# sourceMappingURL=bfs.js.map

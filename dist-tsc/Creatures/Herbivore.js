@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Herbivore = void 0;
-const Creature_1 = require("./Creature");
-class Herbivore extends Creature_1.Creature {
+const creature_1 = require("./creature");
+class Herbivore extends creature_1.Creature {
     constructor(velocity = 1, healthPoints = 3) {
         super(velocity, healthPoints);
         this.view = "🐄";
@@ -13,4 +13,4 @@ class Herbivore extends Creature_1.Creature {
     }
 }
 exports.Herbivore = Herbivore;
-//# sourceMappingURL=Herbivore.js.map
+//# sourceMappingURL=herbivore.js.map

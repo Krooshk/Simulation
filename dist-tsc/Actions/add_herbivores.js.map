@@ -1,0 +1,1 @@
+{"version":3,"file":"add_herbivores.js","sourceRoot":"","sources":["../../src/actions/add_herbivores.ts"],"names":[],"mappings":";;;AAAA,6CAAyC;AACzC,sDAAmD;AAGnD,MAAa,aAAc,SAAQ,sBAAS;IAC1C,YAAY,YAA0B;QACpC,KAAK,CAAC,YAAY,EAAE,CAAC,EAAE,IAAI,EAAE,qBAAS,EAAE,WAAW,CAAC,CAAC;IACvD,CAAC;CACF;AAJD,sCAIC;AAAA,CAAC"}

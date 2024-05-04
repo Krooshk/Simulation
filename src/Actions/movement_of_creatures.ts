@@ -1,6 +1,6 @@
-import { Creature }  from "../Creatures/Creature";
-import { Action }  from "./Action";
-import { MapOfTheGame } from "../Main/MapOfTheGame";
+import { Creature }  from "../creatures/creature";
+import { Action }  from "./action";
+import { MapOfTheGame } from "../main/map_of_the_game";
 
 export class MovementOfCreatures extends Action {
   constructor(mapOfTheGame: MapOfTheGame) {

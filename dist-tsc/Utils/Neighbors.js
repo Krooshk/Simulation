@@ -45,4 +45,4 @@ class Neighbors {
 }
 exports.Neighbors = Neighbors;
 ;
-//# sourceMappingURL=Neighbors.js.map
+//# sourceMappingURL=neighbors.js.map

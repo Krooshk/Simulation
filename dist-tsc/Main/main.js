@@ -4,31 +4,31 @@ const readline = require("readline").createInterface({
     input: process.stdin,
     output: process.stdout,
 });
-const AddGrass_1 = require("../Actions/AddGrass");
-const AddHerbivores_1 = require("../Actions/AddHerbivores");
-const ArrangeAllObjects_1 = require("../Actions/ArrangeAllObjects");
-const MovementOfCreatures_1 = require("../Actions/MovementOfCreatures");
-const MapOfTheGame_1 = require("./MapOfTheGame");
-const Renderer_1 = require("./Renderer");
+const add_grass_1 = require("../actions/add_grass");
+const add_herbivores_1 = require("../actions/add_herbivores");
+const arrange_all_objects_1 = require("../actions/arrange_all_objects");
+const movement_of_creatures_1 = require("../actions/movement_of_creatures");
+const map_of_the_game_1 = require("./map_of_the_game");
+const renderer_1 = require("./renderer");
 class Simulation {
     constructor() {
         this.count = 0;
         this.play = false;
-        this.mapOfTheGame = new MapOfTheGame_1.MapOfTheGame(10, 10);
+        this.mapOfTheGame = new map_of_the_game_1.MapOfTheGame(10, 10);
         this.initActions = [];
         this.turnActions = [];
     }
     fillActions() {
-        this.initActions.push(new ArrangeAllObjects_1.ArrangeAllObjects(this.mapOfTheGame));
-        this.turnActions.push(new MovementOfCreatures_1.MovementOfCreatures(this.mapOfTheGame));
-        this.turnActions.push(new AddGrass_1.AddGrass(this.mapOfTheGame));
-        this.turnActions.push(new AddHerbivores_1.AddHerbivores(this.mapOfTheGame));
+        this.initActions.push(new arrange_all_objects_1.ArrangeAllObjects(this.mapOfTheGame));
+        this.turnActions.push(new movement_of_creatures_1.MovementOfCreatures(this.mapOfTheGame));
+        this.turnActions.push(new add_grass_1.AddGrass(this.mapOfTheGame));
+        this.turnActions.push(new add_herbivores_1.AddHerbivores(this.mapOfTheGame));
     }
     initial() {
         this.initActions.forEach((initAction) => {
             initAction.produce();
         });
-        this.renderer = new Renderer_1.Renderer(this.mapOfTheGame);
+        this.renderer = new renderer_1.Renderer(this.mapOfTheGame);
     }
     nextTurn() {
         this.turnActions.forEach((turnAction) => {

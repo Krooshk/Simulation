@@ -1,7 +1,7 @@
-import {Action} from "./Action";
-import { MapOfTheGame } from "../Main/MapOfTheGame";
-import { Grass } from "../Objects/Grass";
-import { Herbivore } from "../Creatures/Herbivore";
+import {Action} from "./action";
+import { MapOfTheGame } from "../main/map_of_the_game";
+import { Grass } from "../objects/grass";
+import { Herbivore } from "../creatures/herbivore";
 
 export class AddEntity extends Action {
 	mapOfTheGame: MapOfTheGame;

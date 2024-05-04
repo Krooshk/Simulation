@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Creature = void 0;
-const Entity_1 = require("../Main/Entity");
-const BFS_1 = require("../Utils/BFS");
-const Herbivore_1 = require("./Herbivore");
-class Creature extends Entity_1.Entity {
+const entity_1 = require("../main/entity");
+const bfs_1 = require("../utils/bfs");
+const herbivore_1 = require("./herbivore");
+class Creature extends entity_1.Entity {
     constructor(velocity, healthPoints) {
         super();
         this.velocity = velocity;
@@ -14,7 +14,7 @@ class Creature extends Entity_1.Entity {
     makeMove(position, mapOfTheGame, goalName, power) {
         if (this.isWalked)
             return;
-        const pathForGoal = BFS_1.BFS.search(position, mapOfTheGame, goalName);
+        const pathForGoal = bfs_1.BFS.search(position, mapOfTheGame, goalName);
         let stepLeft = this.velocity;
         if (!pathForGoal)
             return;
@@ -28,7 +28,7 @@ class Creature extends Entity_1.Entity {
                 }
                 if (goalName === "Herbivore") {
                     const herbivore = mapOfTheGame.getEntity(pos);
-                    if (herbivore instanceof Herbivore_1.Herbivore) {
+                    if (herbivore instanceof herbivore_1.Herbivore) {
                         if (power > herbivore.healthPoints) {
                             mapOfTheGame.removeEntity(pos);
                             this.healthPoints += herbivore.healthPoints;
@@ -54,4 +54,4 @@ class Creature extends Entity_1.Entity {
     }
 }
 exports.Creature = Creature;
-//# sourceMappingURL=Creature.js.map
+//# sourceMappingURL=creature.js.map

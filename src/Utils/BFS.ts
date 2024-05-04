@@ -1,7 +1,7 @@
-import { Herbivore } from "../Creatures/Herbivore";
-import { MapOfTheGame } from "../Main/MapOfTheGame";
-import { Grass } from "../Objects/Grass";
-import { Neighbors } from "./Neighbors";
+import { Herbivore } from "../creatures/herbivore";
+import { MapOfTheGame } from "../main/map_of_the_game";
+import { Grass } from "../objects/grass";
+import { Neighbors } from "./neighbors";
 
 class BreadthFirstSearch {
   neighbors: Neighbors;

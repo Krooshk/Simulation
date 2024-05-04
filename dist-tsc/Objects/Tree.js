@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Tree = void 0;
-const Entity_1 = require("../Main/Entity");
-class Tree extends Entity_1.Entity {
+const entity_1 = require("../main/entity");
+class Tree extends entity_1.Entity {
     constructor() {
         super();
         this.view = "🌳";
@@ -11,4 +11,4 @@ class Tree extends Entity_1.Entity {
 }
 exports.Tree = Tree;
 ;
-//# sourceMappingURL=Tree.js.map
+//# sourceMappingURL=tree.js.map
